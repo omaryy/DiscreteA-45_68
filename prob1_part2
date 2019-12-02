@@ -1,0 +1,13 @@
+public class prob1_part2 {
+	public long exp(int a,int b,int m) {
+		if(a==0) {
+			return 0;
+		}
+		long result=1;
+		for(int i=1;i<=b;i++) {
+			result=result*a;
+			result=result%m;
+		}
+		return result;
+	}
+}
