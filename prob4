@@ -1,0 +1,20 @@
+public class prob4 {
+	public void sieve(int n){     
+		boolean arr[]=new boolean[n+1];   //stores boolean indicating that the number is prime or not
+		for(int i=0;i<=n;i++) {
+			arr[i]=true;
+		}
+		for(int i=2;i*i<=n;i++) {         //iterating over all numbers from 2 to square root of n
+			if(arr[i]==true) {
+				for(int j=i*i;j<=n;j+=i) {     //all multiples of prime are not prime
+					arr[j]=false;
+				}
+			}
+		}
+		for(int i=2;i<=n;i++) {     //printing only prime numbers
+			if(arr[i]==true) {
+				System.out.println(i);
+			}
+		}
+	}
+}
