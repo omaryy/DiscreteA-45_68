@@ -1,0 +1,20 @@
+public class prob1_part4 {
+	public long exp(int a,int b,int m) {
+		long result=1;
+		if(a==0) {
+			return 0;
+		}
+		if(b==0) {
+			return 1;
+		}
+		if(b%2==0) {
+			result=result*exp(a,b/2,m);
+			result=(result*result)%m;
+		}
+		else {
+			result=a%m;
+			result=result*exp(a,b-1,m)%m;
+		}
+		return result;
+	}
+}
