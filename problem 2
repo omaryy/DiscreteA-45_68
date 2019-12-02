@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+// Function for Extended Euclidean algorithm
+// It uses pointers to return multiple values
+int extended_gcd(int a, int b, int *x, int *y)
+{
+	if (a == 0)
+	{
+		*x = 0;
+		*y = 1;
+		return b;
+	}
+
+	int _x, _y;
+	int gcd = extended_gcd(b % a, a, &_x, &_y);
+
+	*x = _y - (b/a) * _x;
+	*y = _x;
+
+	return gcd;
+}
+
+// main function
+int main()
+{
+	int a ;
+	int b;
+	printf("Enter the two numbers");
+scanf("%d%d",&a,&b);
+	int x, y;
+
+	printf("GCD is %d\n", extended_gcd(a, b, &x, &y));
+	printf("x = %d, y = %d", x, y);
+
+   printf ("\n%d=%d*%d+%d*%d\n",extended_gcd(a, b, &x, &y),a,x,b,y);
+	return 0;
+}
