@@ -1,0 +1,20 @@
+public class prob1_part3 {
+	public long exp(int a,int b,int m) {
+		if(a==0) {
+			return 0;
+		}
+		long result=1;
+		a=a%m;
+		while(b>0) {
+			if(b%2==1) {
+				result=result*a;
+				result=result%m;
+			}
+			b=b/2;
+			a=a*a;
+			a=a%m;
+			
+		}
+		return result;
+	}
+}
